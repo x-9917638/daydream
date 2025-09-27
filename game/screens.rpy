@@ -1619,3 +1619,39 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+###################################### 2 speakers
+
+style multiple2_say_window:
+    variant "small"
+    xsize 450
+    background None
+
+style block1_multiple2_say_window:
+    variant "small"
+    xalign -0.2
+
+style block1_multiple2_say_window:
+    variant "small"
+    xalign -0.1
+
+style block2_multiple2_say_window:
+    variant "small"
+    xalign 0.5
+
+style multiple2_say_window:
+    xsize 640
+    background None
+
+style block1_multiple2_say_window:
+    xalign 0.0
+
+style block2_multiple2_say_window:
+    xalign 1.0
+
+style multiple2_namebox:
+    xpos 20
+
+style multiple2_say_dialogue:
+    xpos 40
+    xsize 560
