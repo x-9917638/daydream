@@ -133,10 +133,10 @@ label start:
     menu: #TODO / Already at final decision for now
         "Marlow, you search for food.":
             jump save_kai
-        "Kai. Mei can't survive here. They'll find us.": # Saving marlow
-            jump save_marlow
-        "Marlow, Kai. Please, search <city> for food.":
-            jump save_mei
+        # "Kai. Mei can't survive here. They'll find us.": # Saving marlow
+        #     jump save_marlow
+        # "Marlow, Kai. Please, search <city> for food.":
+        #     jump save_mei
         
     return
 
