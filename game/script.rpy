@@ -29,6 +29,7 @@ image bg shack gray = im.Grayscale("bg shack.jpg")
 image gray kai neutral = im.Grayscale("kai neutral@2.25.png")
 
 define g_agents = Character("Dusanian Agents", color="#ff0000")
+define omm = Character("Ommasion Border Control", color="#ff0000")
 
 
 # The game starts here.     
@@ -54,11 +55,13 @@ screen search_game():
 screen clicker_game():
     default timer = 3
     default num_clicks = 0
-    text "Click!" size 70:
-        at truecenter, right
-        at transform:
-            alpha 1.0
-            linear 0.5 alpha 0.8
+    frame:
+        xalign 1.0
+        text "Click!" size 100:
+            at top, right
+            at transform:
+                alpha 1.0
+                linear 0.5 alpha 0.8
 
 
     button:
@@ -125,7 +128,7 @@ label start:
 
     menu:
         "Tell them about it":
-            pass # Just proceed
+            pass # Just proceed to who we save
         
         "Hide it from them. I'm the only one who needs to survive.":
             jump selfish
@@ -133,10 +136,10 @@ label start:
     menu: #TODO / Already at final decision for now
         "Marlow, you search for food.":
             jump save_kai
-        "Kai. Mei can't survive here. They'll find us.": # Saving marlow
-            jump save_marlow
-        "Marlow, Kai. Please, search <city> for food.":
-            jump save_mei
+        # "Kai. Mei can't survive here. They'll find us.": # Saving marlow
+        #     jump save_marlow
+        # "Marlow, Kai. Please, search <city> for food.":
+        #     jump save_mei
         
     return
 
@@ -264,6 +267,7 @@ label selfish:
         scene black
 
         "I've failed."
+        "(You died.)"
 
         return
 
@@ -283,6 +287,7 @@ label selfish:
         scene black
 
         "I've failed."
+        "(You died.)"
 
         return
     
@@ -355,6 +360,7 @@ label save_kai:
     scene black
 
     "I've failed."
+    "(You died.)"
 
     return
 
@@ -363,7 +369,7 @@ label save_kai:
 label save_marlow:
     #TODO
 
-    # scene bg ...
+    scene bg shack
 
     show kai serious
     j "Take her and escape to Ommasia. "
@@ -377,12 +383,16 @@ label save_marlow:
     mw "I'll protect June."(multiple=2)
 
     # scene bg ... # This will be the ending scene for this choice
+    scene bg city
     
+    
+
     # Denied entry, gov. discovers, Mei kidnapped, Kai manages to pass msg to June
+
 
     # Marlow learns of Mei, gets sad
     menu: # Attempt a rescue or not?
-        "Opt 1":
+        "We can't just leave her, Marlow. ":
             $ rescue_mei = True
 
         "Opt 2":
